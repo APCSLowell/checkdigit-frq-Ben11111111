@@ -9,13 +9,10 @@ public class CheckDigit
    public static int getCheck(int num) 
    {  
      int total = 0;
-     int n = 1;
-     if(num == 0)
-    return 0;
-     else {
-      n++;
-      return total + (getCheck(num%10) * n);
-    
+    for( int i = 1; i <= getNumberOfDigits(num);i++){
+     total += (8-i) * getDigit(num,i);
+    }
+    return total%10;
      }
    return total%10;
    }
