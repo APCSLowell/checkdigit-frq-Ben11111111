@@ -1,5 +1,6 @@
 public class CheckDigit 
 {   
+ private int total, n;
   /** Returns the check digit for num, as described in part (a).  
    *  Precondition: The number of digits in num is between one and    
    *  six, inclusive.  
@@ -7,9 +8,16 @@ public class CheckDigit
    */  
    public static int getCheck(int num) 
    {  
-     /* to be implemented in part (a) */
+     int total = 0;
+     int n = 2;
+     if(num == 0)
+    return 0;
+     else {
+     return total + (getCheck(num%10) * n);
+    n++;   
+     }
+   return total%10;
    }
- 
   /** Returns true if numWithCheckDigit is valid, or false    
    *  otherwise, as described in part (b). 
    *  Precondition: The number of digits in numWithCheckDigit   
@@ -18,7 +26,7 @@ public class CheckDigit
    */     
    public static boolean isValid(int numWithCheckDigit)    
    {      
-     /* to be implemented in part (b) */    
+     return (getCheck(numWithCheckDigit/10) == numWithCheckDigit%10);
    }    
    
    /** Returns the number of digits in num. */    
